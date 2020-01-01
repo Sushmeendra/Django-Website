@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br xmlns="http://www.w3.org/1999/html">
+<div class="container"><br><br>
+    <div class="row">
+            <div class="card center col s4">
+            <span><h4><b class="red-text">Username:</b></h4></span><br>
+
+            <div class="card-content">
+            <span class="center flow text"><b><h5>{{user.user_Name}}</h5></b></span><br>
+            </div>
+        </div>
+        <div class="card center col s4">
+            <span><h4><b class="red-text">Email:</b></h4></span><br>
+
+                <span class="flow text"><b><h5>{{user.user_Email}}</h5></b></span><br>
+
+        </div>
+        <div class="card center col s4">
+            <span><h4><b class="red-text">Total Savings:</b></h4></span><br>
+            <div class="card-content">
+            <span class="center flow text"><b><h5>{{total}}</h5></b></span><br>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+<br>
+<div class="container amber lighten-1 z-depth-2"><br><br>
+    <div class="row">
+        <div class="col s9">
+        <h2 class="left     white-text" style="text-align: center">{{ name | title }}</h2><br>
+        </div>
+        <div class="col s3">
+            <br>
+            <form action="add_investment/" method="get">
+                {% csrf_token %}
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Investment
+               <i class="material-icons right">text_add</i></button>
+            </form>
+        </div>
+    </div>
+    <br>
+</div>
+    <div class="container row z-depth-2">
+        {% for inv in invs %}
+            <div class="col s6">
+                <div class=" container center card z-depth-2">
+                    <div class="card-content yellow accent-1 z-depth-2">
+                        <p class="center">{{ inv.investment_name}}</p>
+                    </div>
+                    <div class="card-action  lighten-5">
+                        <div class="row">
+                            <div class="col s6">
+                                <a href="#"  ><b>Amount Invested:</b> </a>
+                            </div>
+                            <div class="col s6">
+                            <h6 >{{ inv.investment_amount }}</h6>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col s6"><br>
+                                <a href="#"  ><b>Return Rate:</b> </a>
+                            </div>
+                            <div class="col s6">
+                            <h6 class="btn-floating btn-large green pulse">{{ inv.return_rate }}</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12"><br>
+
+                                <form action="delete/{{inv.investment_name}}" method="post">
+                                    {% csrf_token %}
+                                  <button class="btn waves-effect  waves-light red " type="submit" name="action">Delete
+            <i class="material-icons right">delete</i>
+                            </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+<footer class=" red accent-4 page-footer z-depth-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+{% endblock %}

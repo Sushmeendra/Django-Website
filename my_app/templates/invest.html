@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="row>">
+  <h2>Add Investment</h2>
+    </div>
+  <form action= {% url 'add' %} method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <div class="row">
+      <input type="text" name="inv_name" placeholder="Investment Name or Type"><br>
+      </div>
+      <div class="row">
+      <input type="number" name="inv_amount" min='1' placeholder="Enter Investment Amount"><br>
+      </div>
+      <div class="row">
+      <input type="number" name="return"  min='1' max="100" placeholder="return rate"><br>
+      </div>
+      <div class="row">
+      <input type="date" name="inv_date" ><br>
+      </div>
+      <p class="red-text"> Error: {{ message }} </p>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+</form>
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

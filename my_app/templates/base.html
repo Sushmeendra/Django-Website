@@ -1,0 +1,66 @@
+{% load staticfiles %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Investment Portfolio</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href= '{% static 'materialize/css/style.css' %}' >
+    <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta charset="UTF-8">
+
+    <title>T</title>
+</head>
+<body>
+
+<nav class="red accent-4">
+    <div class="container nav-wrapper" >
+        <a href="/" class="brand-logo">Investment Portfolio <i class="material-icons medium" style="font-size:30px">insert_chart</i></a>
+
+        <ul id="nav-mobile" class="right">
+            <li><a href="/">Home</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1 style="text-align: center" class="mobile">Manage Your Investment by Creating your own Portfolio !!</h1>
+    <div class="row">
+        <div class="col s4">
+
+            <div class="center">
+                <i class="large material-icons" style="color: #d50000">flash_on</i>
+                <p>Fast custom Investment Portfolio</p>
+                <p class="light center">Add Different Types of Investment</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+
+            <div class="center">
+                <i class="large material-icons" style="color: orange">camera</i>
+                <p>Best Investment solutions</p>
+                <p class="light center">Learn Which Type of Investment suits You</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+
+            <div class="center">
+                <i class="large material-icons" style="color: blue">insert_chart</i>
+                <p>Get insights</p>
+                <p class="light center">Our scientific charts proivide you with Insights️</p>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+
+    {% endblock content %}
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+
+</body>
+</html>

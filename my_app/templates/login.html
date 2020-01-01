@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container " xmlns="http://www.w3.org/1999/html">
+  <br>
+    <div class=" center row>">
+  <h2 >Login</h2><br>
+    </div>
+  <form action= {% url 'login' %} method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <div class=" row">
+        <br>
+      <input  type="text" name="username" placeholder="username"><br>
+      </div>
+      <div class=" row">
+        <br>
+      <input  type="password" name="password" placeholder="password"><br>
+          <p>{{ message }}</p>
+      </div>
+      <div class="center row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          <br>
+        </button>
+        <br>
+      </div>
+  </form>
+  <div class=" center row">
+    <br>
+    <p class="cyan-text"> Don't have an Account. Create Now</p>
+  <a href="register/"  > <button class="btn waves-effect waves-light green accent-3" type="submit" name="action">Sign Up
+            <i class="material-icons  right">send</i>
+
+  </button></a>
+  </div>
+</div>
+
+
+
+{% endblock %}
